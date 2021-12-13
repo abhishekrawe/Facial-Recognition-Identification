@@ -95,17 +95,17 @@ class Face_recognition_System:
 
 
         # Train face button
-        img8=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\search.png")
-        img8=img8.resize((220,220),Image.ANTIALIAS)
-        self.photoimg8=ImageTk.PhotoImage(img8)
+        img7=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\search.png")
+        img7=img7.resize((220,220),Image.ANTIALIAS)
+        self.photoimg7=ImageTk.PhotoImage(img7)
 
-        b1=Button(bg_img,image=self.photoimg8, cursor="hand2")
+        b1=Button(bg_img,image=self.photoimg7, cursor="hand2")
         b1.place(x=200, y=380,width =220 , height=220)
 
         b1_1=Button(bg_img,text="Train Data" , cursor="hand2" ,  font=("times new roman",15,"bold"),bg="darkblue",fg="white")
         b1_1.place(x=200, y=580,width =220 , height=40)
 
-        # Train face button
+        # Photos face button
         img8=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\search.png")
         img8=img8.resize((220,220),Image.ANTIALIAS)
         self.photoimg8=ImageTk.PhotoImage(img8)
@@ -126,8 +126,20 @@ class Face_recognition_System:
         b1=Button(bg_img,image=self.photoimg9, cursor="hand2")
         b1.place(x=630, y=380,width =220 , height=220)
 
-        b1_1=Button(bg_img,text="Train Data" , cursor="hand2" ,  font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Photo" , cursor="hand2" ,  font=("times new roman",15,"bold"),bg="darkblue",fg="white")
         b1_1.place(x=630, y=580,width =220 , height=40)
+
+
+        # exit button
+        img10=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\search.png")
+        img10=img10.resize((220,220),Image.ANTIALIAS)
+        self.photoimg10=ImageTk.PhotoImage(img10)
+
+        b1=Button(bg_img,image=self.photoimg10, cursor="hand2")
+        b1.place(x=1100, y=380,width =220 , height=220)
+
+        b1_1=Button(bg_img,text="exit button" , cursor="hand2" ,  font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1.place(x=1100, y=580,width =220 , height=40)
 
 
 

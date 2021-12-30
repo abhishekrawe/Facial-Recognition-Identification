@@ -141,7 +141,8 @@ class Student:
         studentId_entry.grid(row=0,column=1,padx=10,pady=5, sticky=W)
 
 
-        # student name
+        #student name
+        
         studentName_label=Label(class_Student_frame,text="Student Name:",font=("times new roman",13,"bold"),bg= "white")
         studentName_label.grid(row=0,column = 2,padx=10,pady=5, sticky=W)
         
@@ -211,8 +212,7 @@ class Student:
         radionbtn1=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="Take Photo Sample ",value="Yes")
         radionbtn1.grid(row=6,column=0)
 
-        self.var_radio1=StringVar()
-        radionbtn2=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="No Photo Sample",value="Yes")
+        radionbtn2=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="No Photo Sample",value="No")
         radionbtn2.grid(row=6,column=1)
 
         #buttons frame
@@ -331,6 +331,7 @@ class Student:
         self.student_table.column("photo",width=150)
 
         self.student_table.pack(fill=BOTH,expand=1)
+        self.fetch_data()
 
     # ==========================function decration==============================
     def add_data(self):
@@ -345,7 +346,7 @@ class Student:
                                                                                                            self.var_course.get(),
                                                                                                            self.var_year.get(),
                                                                                                            self.var_semester.get(),           
-                                                                                                           self.var_std_id.get(),
+                                                                                                           self.va_std_id.get(),
                                                                                                            self.var_std_name.get(),
                                                                                                            self.var_div.get(),
                                                                                                            self.var_roll.get(),
@@ -359,13 +360,25 @@ class Student:
             
                                                                                                      ))    
                 conn.commit()
+                self.fetch_data()
                 conn.close()
                 messagebox.showinfo("Success","Stduent details has been added Successfully", parent=self.root)
             except Exception as es:
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
+    # =================================fetch data ===============================================
+    def fetch_data(self):
+        conn=mysql.connector.connect(host="localhost",username="root",password="Abhi@99315",database="face_recognizer")
+        my_cursor=conn.cursor()
+        my_cursor.execute("select * from student")
+        data=my_cursor.fetchall()
 
-
+        if len(data)!=0:
+            self.student_table.delete(*self.student_table.get_children())
+            for i in data:
+                self.student_table.insert("",END,values=i)
+            conn.commit()
+        conn.close()      
  
 if __name__ == "__main__":
     root=Tk()

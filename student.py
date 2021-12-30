@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image,ImageTk
+from tkinter import messagebox
 
 class Student:
     def __init__(self,root):
@@ -23,7 +24,7 @@ class Student:
         self.var_email=StringVar()
         self.var_phone=StringVar()
         self.var_address=StringVar()
-        self.var_teacher=StirngVar()
+        self.var_teacher=StringVar()
 
 
         #First Image
@@ -206,18 +207,18 @@ class Student:
         
         # radio button
         self.var_radio1=StringVar()
-        radiobtn1=ttk.Radiobutton(class_Student_frame,text="Take Photo Sample " , value = "Yes")
+        radiobtn1=ttk.Radiobutton(class_Student_frame,textvariable=self.var_radio1,text="Take Photo Sample " , value = "Yes")
         radiobtn1.grid(row=6,column=0)
         
         self.var_radio2=StringVar()
-        radiobtn2=ttk.Radiobutton(class_Student_frame,text="No Photo Sample", value="yes")
+        radiobtn2=ttk.Radiobutton(class_Student_frame,textvariable=self.var_radio2,text="No Photo Sample", value="yes")
         radiobtn2.grid(row=6,column=1)
 
         #buttons frame
         btn_frame=Frame(class_Student_frame,bd=2,relief=RIDGE,bg="white")
         btn_frame.place(x=0,y=200,width=715,height=35)
 
-        save_btn=Button(btn_frame,text="Save",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        save_btn=Button(btn_frame,text="Save",command=self.add_data,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
         save_btn.grid(row=0,column=0)
         
         update_btn=Button(btn_frame,text="Update",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
@@ -240,21 +241,6 @@ class Student:
         update_photo_btn=Button(btn_frame1,text="Update Photo Sample",width=35,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
         update_photo_btn.grid(row=0,column=1)
 
-
-
-
-
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         #Right label frame 
 
@@ -362,30 +348,9 @@ class Student:
     # ==========================function decration==============================
     def add_data(self):
         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.va_std_id.get()=="":
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            messagebox.showerror("Error","All Fileds are required",parent=self.root)
+        else:
+            messagebox.showinfo("success","welcome abhishek rawe")  
 
 
 

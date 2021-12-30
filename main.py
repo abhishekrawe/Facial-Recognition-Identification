@@ -21,7 +21,6 @@ class Face_recognition_System:
 
 
 
-
         #Second Image
         img1=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\memories.png")
         img1=img1.resize((500,130),Image.ANTIALIAS)
@@ -66,11 +65,11 @@ class Face_recognition_System:
         b1=Button(bg_img,image=self.photoimg4,command=self.student_details,cursor="hand2")
         b1.place(x=200, y=100,width =220 , height=220)
 
-        b1_1=Button(bg_img,text="Student Details",command=self.student_details,cursor="hand2" ,  font=("times new roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Student Details",command=self.student_details,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
         b1_1.place(x=200, y=300,width =220 , height=40)
 
 
-         # Detect face button
+        # Detect face button
         img5=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\search.png")
         img5=img5.resize((220,220),Image.ANTIALIAS)
         self.photoimg5=ImageTk.PhotoImage(img5)
@@ -142,12 +141,35 @@ class Face_recognition_System:
         b1_1=Button(bg_img,text="exit button" , cursor="hand2" ,  font=("times new roman",15,"bold"),bg="darkblue",fg="white")
         b1_1.place(x=1100, y=580,width =220 , height=40)
 
-#======================================functions buttons=================================
-def student_details(self):
-    self.new_window=Toplevel(self.root)
-    self.app=Student(self.new_window)
 
-      
+    #======================================Function Buttons==========================
+    def student_details(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Student(self.new_window)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

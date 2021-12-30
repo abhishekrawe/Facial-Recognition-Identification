@@ -208,10 +208,10 @@ class Student:
         
         # radio button
         self.var_radio1=StringVar()
-        radionbtn1=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="Take Photo Sample " , value = "Yes")
-        radiobtn1.grid(row=6,column=0)
+        radionbtn1=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="Take Photo Sample ",value="Yes")
+        radionbtn1.grid(row=6,column=0)
 
-        radiobtn2=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="No Photo Sample", value="yes")
+        radionbtn2=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="No Photo Sample",value="Yes")
         radionbtn2.grid(row=6,column=1)
 
         #buttons frame
@@ -333,11 +333,11 @@ class Student:
 
     # ==========================function decration==============================
     def add_data(self):
-        if self.var_dep.get()=="Select Department" or self.va_std_name.get()=="" or self.va_std_id.get()=="":
+        if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.va_std_id.get()=="":
             messagebox.showerror("Error","All Fileds are required",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="Abhi@99315",database="face_recognizer",password="Abhi@99315",database="face_recognizer")
+                conn=mysql.connector.connect(host="localhost",username="root",password="Abhi@99315",database="face_recognizer")
                 my_cursor=conn.cursor()
                 my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
                                                                                                            self.var_dep.get(),

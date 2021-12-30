@@ -211,6 +211,7 @@ class Student:
         radionbtn1=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="Take Photo Sample ",value="Yes")
         radionbtn1.grid(row=6,column=0)
 
+        self.var_radio1=StringVar()
         radionbtn2=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="No Photo Sample",value="Yes")
         radionbtn2.grid(row=6,column=1)
 

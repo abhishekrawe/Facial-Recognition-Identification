@@ -208,12 +208,11 @@ class Student:
         
         # radio button
         self.var_radio1=StringVar()
-        radiobtn1=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="Take Photo Sample " , value = "Yes")
+        radionbtn1=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="Take Photo Sample " , value = "Yes")
         radiobtn1.grid(row=6,column=0)
-        
-        self.var_radio2=StringVar()
-        radiobtn2=ttk.Radiobutton(class_Student_frame,variable=self.var_radio2,text="No Photo Sample", value="yes")
-        radiobtn2.grid(row=6,column=1)
+
+        radiobtn2=ttk.Radiobutton(class_Student_frame,variable=self.var_radio1,text="No Photo Sample", value="yes")
+        radionbtn2.grid(row=6,column=1)
 
         #buttons frame
         btn_frame=Frame(class_Student_frame,bd=2,relief=RIDGE,bg="white")
@@ -291,6 +290,7 @@ class Student:
 
         scroll_x.pack(side=BOTTOM,fill=X)
         scroll_y.pack(side=RIGHT,fill=Y)
+
         scroll_x.config(command=self.student_table.xview)
         scroll_y.config(command=self.student_table.yview)
 
@@ -301,7 +301,7 @@ class Student:
         self.student_table.heading("sem", text="Semester")
         self.student_table.heading("id", text="StudentId")
         self.student_table.heading("name", text="Name")
-        self.student_table.heading("roll", text="Roll")
+        self.student_table.heading("roll", text="Roll No")
         self.student_table.heading("gender", text="Gender") 
         self.student_table.heading("div", text="Division")
         self.student_table.heading("dob", text="DOB")
@@ -312,6 +312,7 @@ class Student:
         self.student_table.heading("photo", text="PhotoSampleStatus")
         self.student_table["show"]="headings"
 
+       
         self.student_table.column("dep",width=100)
         self.student_table.column("course",width=100)
         self.student_table.column("year",width=100)
@@ -327,36 +328,18 @@ class Student:
         self.student_table.column("address",width=100)
         self.student_table.column("teacher",width=100)
         self.student_table.column("photo",width=150)
-        
-        self.student_table.column("dep",width=100)
-        self.student_table.column("course",width=100)
-        self.student_table.column("year",width=100)
-        self.student_table.column("sem",width=100)
-        self.student_table.column("id",width=100)
-        self.student_table.column("name",width=100)
-        self.student_table.column("roll",width=100)
-        self.student_table.column("gender",width=100)
-        self.student_table.column("div",width=100)
-        self.student_table.column("dob",width=100)
-        self.student_table.column("email",width=100)
-        self.student_table.column("phone",width=100)
-        self.student_table.column("address",width=100)
-        self.student_table.column("teacher",width=100)
-        self.student_table.column("photo",width=100)
 
         self.student_table.pack(fill=BOTH,expand=1)
 
     # ==========================function decration==============================
     def add_data(self):
-        if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.va_std_id.get()=="":
+        if self.var_dep.get()=="Select Department" or self.va_std_name.get()=="" or self.va_std_id.get()=="":
             messagebox.showerror("Error","All Fileds are required",parent=self.root)
         else:
             try:
-            conn=mysql.connector.connect(host="localhost",username="root",password="Abhi@99315",database="face_recognizer",password="Abhi@99315",database="face_recognizer ")
-            my_cursor=conn.cursor()
-            my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
-
-
+                conn=mysql.connector.connect(host="localhost",username="root",password="Abhi@99315",database="face_recognizer",password="Abhi@99315",database="face_recognizer")
+                my_cursor=conn.cursor()
+                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
                                                                                                            self.var_dep.get(),
                                                                                                            self.var_course.get(),
                                                                                                            self.var_year.get(),
@@ -374,11 +357,11 @@ class Student:
                                                                                                            self.var_radio1.get()
             
                                                                                                      ))    
-            conn.commit()
-            conn.close()
-            messagebox.showinfo("Success","Stduent details has been added Successfully", parent=self.root)
-        except Exception as es:
-            messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
+                conn.commit()
+                conn.close()
+                messagebox.showinfo("Success","Stduent details has been added Successfully", parent=self.root)
+            except Exception as es:
+                messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
 
 

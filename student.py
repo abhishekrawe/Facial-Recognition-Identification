@@ -331,6 +331,7 @@ class Student:
         self.student_table.column("photo",width=150)
 
         self.student_table.pack(fill=BOTH,expand=1)
+        self.student_table.bind("<ButtonRelease>",self.get_cursor)
         self.fetch_data()
 
     # ==========================function decration==============================
@@ -378,7 +379,46 @@ class Student:
             for i in data:
                 self.student_table.insert("",END,values=i)
             conn.commit()
-        conn.close()      
+        conn.close()  
+
+    # ================================get cursor ===================================
+    def get_cursor(self,event=""):
+        cursor_focus=self.student_table.focus()
+        content=self.student_table.item(cursor_focus)
+        data=content["values"]
+
+        self.var_dep.set(data[0]),
+        self.var_course.set(data[1]),
+        self.var_year.set(data[2]),
+        self.var_semester.set(data[3]),
+        self.va_std_id.set(data[4]),
+        self.var_std_name.set(data[5]),
+        self.var_div.set(data[6]),
+        self.var_roll.set(data[7]),
+        self.var_gender.set(data[8]),
+        self.var_dob.set(data[9]),
+        self.var_email.set(data[10]),
+        self.var_phone.set(data[11]),
+        self.var_address.set(data[12]),
+        self.var_teacher.set(data[13]),
+        self.var_radio1.set(data[14])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 if __name__ == "__main__":
     root=Tk()

@@ -421,7 +421,7 @@ class Student:
                 if Update>0:
                    conn=mysql.connector.connect(host="localhost",username="root",password="Abhi@99315",database="face_recognizer")
                    my_cursor=conn.cursor()
-                   my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where Student_id=%s",(
+                   my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Division=%s,Roll=%s,Email=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where Student_id=%s",(
                       
                                                                                                                                                                                 self.var_dep.get(),
                                                                                                                                                                                 self.var_course.get(),
@@ -503,7 +503,7 @@ class Student:
                 id= 0
                 for x in myresult:
                     id+=1
-                my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where Student_id=%s",(
+                my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Division=%s,Roll=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where Student_id=%s",(
                       
                                                                                                                                                                                 self.var_dep.get(),
                                                                                                                                                                                 self.var_course.get(),
@@ -532,11 +532,9 @@ class Student:
 
                 def face_cropped(img):
                     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-                    faces=face_classifier.detectMultiScale(grey,1.3,5)
+                    faces=face_classifier.detectMultiScale(gray,1.3,5)
                     #scalling factor=1.3
                     #Minimum Neighbor=5
-
-
                     for (x,y,w,h) in faces:
                         face_cropped=img[y:y+h,x:x+w]
                         return face_cropped
@@ -561,7 +559,7 @@ class Student:
                 messagebox.showinfo("Result","Generating data sets completed!!!!")        
             except Exception as es:
                 messagebox.showerror("Error",f"Due To:{str(es)}",parent=self.root)
-                
+
 
 
 

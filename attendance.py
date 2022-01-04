@@ -4,7 +4,12 @@ from PIL import Image,ImageTk
 from tkinter import messagebox
 import mysql.connector
 import cv2
+import os
+import csv
+from tkinter import filedialog
 
+
+mydata=[]
 class Attendance:
     def __init__(self,root):
         self.root=root
@@ -128,10 +133,10 @@ class Attendance:
         btn_frame=Frame(left_inside_frame,bd=2,relief=RIDGE,bg="white")
         btn_frame.place(x=0,y=300,width=715,height=35)
 
-        save_btn=Button(btn_frame,text="Import csv",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        save_btn=Button(btn_frame,text="Import csv",command=self.importCsv,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
         save_btn.grid(row=0,column=0)
         
-        update_btn=Button(btn_frame,text="Export csv",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        update_btn=Button(btn_frame,text="Export csv",command=self.exportCsv,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
         update_btn.grid(row=0,column=1)
 
         delete_btn=Button(btn_frame,text="Update ",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
@@ -185,6 +190,40 @@ class Attendance:
         self.AttendaceReportTable.pack(fill=BOTH,expand=1)
 
 
+   # ================================= fetch data=======================
+
+    def fetchData(self,rows):
+        self.AttendaceReportTable.delete(*self.AttendaceReportTable.get_children())
+        for i in rows:
+           self.AttendaceReportTable.insert("",END,values=i)
+    
+    
+    
+    # import csv
+    def importCsv(self):  
+        global mydata
+        fln=filedialog.askopenfilename(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*.csv"),("ALL File","*.*")),parent=self.root)
+        with open(fln) as myfile:
+          csvread=csv.reader(myfile,delimiter=",")
+          for i in csvread:
+            mydata.append(i)
+          self.fetchData(mydata) 
+    
+    # export csv
+    def exportCsv(self):
+      try:
+        if len(mydata)<1:
+          messagebox.showerror("No Data", "No Data found to export",parent=self.root)
+          return Fasle
+        fln=filedialog.askopenfilename(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*.csv"),("ALL File","*.*")),parent=self.root)
+        with open(fln,mode="w",newline="") as myfile:
+          exp_write=csv.writer(myfile,delimeter=",")
+          for i in mydata:
+            exp_write.writerow(i)
+          messagebox.showinfo("Data Export", "Your data exported to " + os.path.basename(fln)+"successfully")
+      except Exception as es :
+               messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
+            
 
 
 

@@ -82,7 +82,7 @@ class Face_Recognition:
             return coord
 
         def recognize(img,clf,faceCascade):
-            coord=draw_boundry(img,faceCascade,1.1,10,(255,25,255),"Face",clf)
+            coord=draw_boundray(img,faceCascade,1.1,10,(255,25,255),"Face",clf)
             return img
 
         faceCascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")

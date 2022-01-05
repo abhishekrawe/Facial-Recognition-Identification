@@ -46,3 +46,5 @@ __LBPH__(Local Binary Pattern Histogram) it is used to recognize the face of per
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/abhishekrawe//LICENSE) file for details
 
+
+

@@ -17,6 +17,16 @@ class Attendance:
         self.root.title("face Recogniton System")
     
         
+
+        # ====================variables===============
+        self.var_atten_id=StringVar()
+        self.var_atten_roll=StringVar()
+        self.var_atten_name=StringVar()
+        self.var_atten_dep=StringVar()
+        self.var_atten_time=StringVar()
+        self.var_atten_date=StringVar()
+        self.var_atten_attendance=StringVar()
+
         #First Image
         img=Image.open(r"college_images\jsx.png")
         img=img.resize((800,200),Image.ANTIALIAS)
@@ -71,60 +81,53 @@ class Attendance:
         attendanceId_label=Label(left_inside_frame,text="AttendanceId:",font=("times new roman",12,"bold"),bg="white")
         attendanceId_label.grid(row=0,column = 0,padx=10,pady=5, sticky=W)
         
-        attendanceId_entry=ttk.Entry(left_inside_frame,width=20,font=("times new roman", 13, "bold"))
+        attendanceId_entry=ttk.Entry(left_inside_frame,width=20,textvariable=self.var_atten_id,font=("times new roman", 13, "bold"))
         attendanceId_entry.grid(row=0,column=1,padx=10,pady=5, sticky=W)
 
 
-        # Neam 
+        # Name 
         rollLabel=Label(left_inside_frame,text="Roll:",bg="white",font="comicsansns 11 bold")
         rollLabel.grid(row=0,column=2,padx=4,pady=8)
 
 
-        atten_roll=ttk.Entry(left_inside_frame,width=22,font="comicsansns 11 bold")
+        atten_roll=ttk.Entry(left_inside_frame,width=22,textvariable=self.var_atten_name,font="comicsansns 11 bold")
         atten_roll.grid(row=0,column=3,pady=8)
        
         # date 
         nameLabel=Label(left_inside_frame,text="Name:",bg="white",font="comicsansns 11 bold")
         nameLabel.grid(row=1,column=0)
 
-        atten_name=ttk.Entry(left_inside_frame,width=22,font="comicsansns 11 bold")
+        atten_name=ttk.Entry(left_inside_frame,width=22,textvariable=self.var_atten_name,font="comicsansns 11 bold")
         atten_name.grid(row=1,column=1,pady=8)
 
         # Department
         depLabel=Label(left_inside_frame,text="Department:",bg="white",font="comicsansns 11 bold")
         depLabel.grid(row=1,column=2)
 
-        atten_dep=ttk.Entry(left_inside_frame,width=22,font="comicsansns 11 bold")
+        atten_dep=ttk.Entry(left_inside_frame,width=22,textvariable=self.var_atten_dep,font="comicsansns 11 bold")
         atten_dep.grid(row=1,column=3,pady=8)
 
         # Time
         timeLabel=Label(left_inside_frame,text="Time:",bg="white",font="comicsansns 11 bold")
         timeLabel.grid(row=2,column=0)
 
-        atten_time=ttk.Entry(left_inside_frame,width=22,font="comicsansns 11 bold")
+        atten_time=ttk.Entry(left_inside_frame,width=22,textvariable=self.var_atten_time,font="comicsansns 11 bold")
         atten_time.grid(row=2,column=1,pady=8)
 
 
         # Date
-        dateLabel=Label(left_inside_frame,text="Time:",bg="white",font="comicsansns 11 bold")
-        dateLabel.grid(row=2,column=2)
+        dataLabel=Label(left_inside_frame,text="Time:",bg="white",font="comicsansns 11 bold")
+        dataLabel.grid(row=2,column=2)
 
-        atten_date=ttk.Entry(left_inside_frame,width=22,font="comicsansns 11 bold")
+        atten_date=ttk.Entry(left_inside_frame,width=22,textvariable=self.var_atten_date,font="comicsansns 11 bold")
         atten_date.grid(row=2,column=3,pady=8)
 
-        # Time
-        timeLabel=Label(left_inside_frame,text="Time:",bg="white",font="comicsansns 11 bold")
-        timeLabel.grid(row=2,column=0)
 
-        atten_time=ttk.Entry(left_inside_frame,width=22,font="comicsansns 11 bold")
-        atten_time.grid(row=2,column=1,pady=8)
-
-
-        # Time
+        # attendance
         attendanceLabel=Label(left_inside_frame,text="Attendance Status:",bg="white",font="comicsansns 11 bold")
         attendanceLabel.grid(row=3,column=0)
 
-        self.atten_status=ttk.Combobox(left_inside_frame,width=20,font="comicsansns 11 bold", state="readonly")
+        self.atten_status=ttk.Combobox(left_inside_frame,width=20,textvariable=self.var_atten_attendance,font="comicsansns 11 bold", state="readonly")
         self.atten_status["values"]=("Status","Present","Absent")
         self.atten_status.grid(row=3,column=1,pady=8)
         self.atten_status.current(0)
@@ -142,7 +145,7 @@ class Attendance:
         delete_btn=Button(btn_frame,text="Update ",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
         delete_btn.grid(row=0,column=2)
 
-        reset_btn=Button(btn_frame,text="Reset",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
         reset_btn.grid(row=0,column=3)
 
 
@@ -189,6 +192,8 @@ class Attendance:
        
         self.AttendaceReportTable.pack(fill=BOTH,expand=1)
 
+        self.AttendaceReportTable.bind("<ButtonRelease>",self.get_cursor)
+
 
    # ================================= fetch data=======================
 
@@ -202,12 +207,13 @@ class Attendance:
     # import csv
     def importCsv(self):  
         global mydata
+        mydata.clear()
         fln=filedialog.askopenfilename(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*.csv"),("ALL File","*.*")),parent=self.root)
         with open(fln) as myfile:
           csvread=csv.reader(myfile,delimiter=",")
           for i in csvread:
             mydata.append(i)
-          self.fetchData(mydata) 
+        self.fetchData(mydata) 
     
     # export csv
     def exportCsv(self):
@@ -215,7 +221,7 @@ class Attendance:
         if len(mydata)<1:
           messagebox.showerror("No Data", "No Data found to export",parent=self.root)
           return Fasle
-        fln=filedialog.askopenfilename(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*.csv"),("ALL File","*.*")),parent=self.root)
+        fln=filedialog.asksaveasfilename(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*.csv"),("ALL File","*.*")),parent=self.root)
         with open(fln,mode="w",newline="") as myfile:
           exp_write=csv.writer(myfile,delimeter=",")
           for i in mydata:
@@ -224,12 +230,30 @@ class Attendance:
       except Exception as es :
                messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
             
+    def get_cursor(self,event=""):
+      cursor_row=self.AttendaceReportTable.focus()
+      content=self.AttendaceReportTable.item(cursor_row)
+      rows=content['values']
+      self.var_atten_id.set(rows[0])
+      self.var_atten_roll.set(rows[1])
+      self.var_atten_name.set(rows[2])
+      self.var_atten_dep.set(rows[3])
+      self.var_atten_time.set(rows[4])
+      self.var_atten_date.set(rows[5])
+      self.var_atten_attendance.set(rows[6])
+        
+    def reset_data(self):
+      self.var_atten_id.set("")
+      self.var_atten_roll.set("")
+      self.var_atten_name.set("")
+      self.var_atten_dep.set("")
+      self.var_atten_time.set("")
+      self.var_atten_date.set("")
+      self.var_atten_attendance.set("")
 
 
 
-
-
-
+ 
 if __name__ == "__main__":
     root=Tk()
     obj=Attendance(root)

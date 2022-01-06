@@ -17,12 +17,12 @@ class Face_Recognition:
         self.root.title("face Recogniton System")
 
 
-        title_lbl=Label(self.root,text="FACE RECOGNITION",font=("times new roman",35,"bold"),bg="white",fg="Blue")
-        title_lbl.place(x=0,y=0,width=1530,height=45)
+        title_lbl=Label(self.root,text="FACE RECOGNITION",font=("times new roman",35,"bold"),bg="Black",fg="White")
+        title_lbl.place(x=0,y=0,width=1530,height=55)
 
 
         # 1st image
-        img_top=Image.open(r"college_images\jsx.png")
+        img_top=Image.open(r"college_images\bgirl.jpg")
         img_top=img_top.resize((650,700),Image.ANTIALIAS)
         self.photoimg_top=ImageTk.PhotoImage(img_top)
 
@@ -30,7 +30,7 @@ class Face_Recognition:
         f_lbl.place(x=0,y=55,width=650,height=700)
 
         #2nd image
-        img_bottom=Image.open(r"college_images\jsx.png")
+        img_bottom=Image.open(r"college_images\cybercheck.jpg")
         img_bottom=img_bottom.resize((950,700),Image.ANTIALIAS)
         self.photoimg_bottom=ImageTk.PhotoImage(img_bottom)
 
@@ -38,8 +38,8 @@ class Face_Recognition:
         f_lbl.place(x=650,y=55,width=950,height=700)
 
         #button
-        b1_1=Button(f_lbl,text="Face Recognition",command=self.face_recog,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=365, y=620,width =200 , height=40)
+        b1_1=Button(f_lbl,text="Face Recognition",command=self.face_recog,cursor="hand2",font=("times new roman",18,"bold"),bg="white",fg="black")
+        b1_1.place(x=365, y=620,width =200 , height=60)
 
     # =========================attendence==============================
 

@@ -28,7 +28,7 @@ class Attendance:
         self.var_atten_attendance=StringVar()
 
         #First Image
-        img=Image.open(r"college_images\jsx.png")
+        img=Image.open(r"college_images\girlbg.jpg")
         img=img.resize((800,200),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -39,7 +39,7 @@ class Attendance:
 
 
         #Second Image
-        img1=Image.open(r"college_images\memories.png")
+        img1=Image.open(r"college_images\fig-touch.jpg")
         img1=img1.resize((800,200),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -49,15 +49,15 @@ class Attendance:
        
 
         #bg Image
-        img3=Image.open(r"college_images\es6.png")
+        img3=Image.open(r"college_images\boy-bg.jpg")
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
         bg_img=Label(self.root,image=self.photoimg3)
         bg_img.place(x=0,y=200 ,width=1530,height=710)
 
-        title_lbl=Label(bg_img,text="Attendence Management System ",font=("times new roman",35,"bold"),bg="white",fg="Blue")
-        title_lbl.place(x=0,y=0,width=1530,height=45)
+        title_lbl=Label(bg_img,text="Attendence Management System ",font=("times new roman",35,"bold"),bg="black",fg="white")
+        title_lbl.place(x=0,y=0,width=1530,height=54)
 
         main_frame=Frame(bg_img,bd=2)
         main_frame.place(x=10,y=55,width=1500,height=600)
@@ -67,7 +67,7 @@ class Attendance:
         Left_frame=LabelFrame(main_frame,bd=2,relief=RIDGE,text="Student Attendance Details", font=("times new roman",12,"bold"))
         Left_frame.place(x=10, y=10, width=760, height=580)
 
-        img_left=Image.open(r"college_images\jsx.png")
+        img_left=Image.open(r"college_images\happypepole.jpg")
         img_left=img_left.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
         
@@ -136,16 +136,16 @@ class Attendance:
         btn_frame=Frame(left_inside_frame,bd=2,relief=RIDGE,bg="white")
         btn_frame.place(x=0,y=300,width=715,height=35)
 
-        save_btn=Button(btn_frame,text="Import csv",command=self.importCsv,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        save_btn=Button(btn_frame,text="Import csv",command=self.importCsv,width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         save_btn.grid(row=0,column=0)
         
-        update_btn=Button(btn_frame,text="Export csv",command=self.exportCsv,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        update_btn=Button(btn_frame,text="Export csv",command=self.exportCsv,width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         update_btn.grid(row=0,column=1)
 
-        delete_btn=Button(btn_frame,text="Update ",width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        delete_btn=Button(btn_frame,text="Update ",width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         delete_btn.grid(row=0,column=2)
 
-        reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         reset_btn.grid(row=0,column=3)
 
 

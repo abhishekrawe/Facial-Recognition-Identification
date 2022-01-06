@@ -30,7 +30,7 @@ class Student:
 
 
         #First Image
-        img=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\jsx.png")
+        img=Image.open(r"college_images\cybercheck.jpg")
         img=img.resize((500,130),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -41,7 +41,7 @@ class Student:
 
 
         #Second Image
-        img1=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\memories.png")
+        img1=Image.open(r"college_images\bgirl.jpg")
         img1=img1.resize((500,130),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -53,7 +53,7 @@ class Student:
 
 
         #Third Image
-        img2=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\js.png")
+        img2=Image.open(r"college_images\fig-touch.jpg")
         img2=img2.resize((500,130),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -61,14 +61,14 @@ class Student:
         f_lbl.place(x=1000,y=0,width=550,height=130)
 
         #Bg Image
-        img3=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\images.jpg")
+        img3=Image.open(r"college_images\boy-bg.jpg")
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
         bg_img=Label(self.root,image=self.photoimg3)
         bg_img.place(x=0,y=130,width=1530,height=710)
 
-        title_lbl=Label(bg_img,text="Student Management System" , font=("times new roman",35,"bold"),bg="white",fg="darkgreen")
+        title_lbl=Label(bg_img,text="Student Management System" , font=("times new roman",35,"bold"),bg="black",fg="white")
         title_lbl.place(x=0,y=0,width=1530,height=45)
 
         main_frame=Frame(bg_img,bd=2)
@@ -79,7 +79,7 @@ class Student:
         Left_frame=LabelFrame(main_frame,bd=2,relief=RIDGE,text="Student Details", font=("times new roman",12,"bold"))
         Left_frame.place(x=10, y=10, width=760, height=580)
 
-        img_left=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\jsx.png")
+        img_left=Image.open(r"college_images\happypepole.jpg")
         img_left=img_left.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -226,16 +226,16 @@ class Student:
         btn_frame=Frame(class_Student_frame,bd=2,relief=RIDGE,bg="white")
         btn_frame.place(x=0,y=200,width=715,height=35)
 
-        save_btn=Button(btn_frame,text="Save",command=self.add_data,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        save_btn=Button(btn_frame,text="Save",command=self.add_data,width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         save_btn.grid(row=0,column=0)
         
-        update_btn=Button(btn_frame,text="Update",command=self.update_data,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        update_btn=Button(btn_frame,text="Update",command=self.update_data,width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         update_btn.grid(row=0,column=1)
 
-        delete_btn=Button(btn_frame,text="Delete",command=self.delete_data,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        delete_btn=Button(btn_frame,text="Delete",command=self.delete_data,width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         delete_btn.grid(row=0,column=2)
 
-        reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=17,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=17,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         reset_btn.grid(row=0,column=3)
 
 
@@ -243,10 +243,10 @@ class Student:
         btn_frame1.place(x=0,y=235,width=715,height=35)
 
 
-        take_photo_btn=Button(btn_frame1,command=self.generate_dataset,text="Take Photo Sample",width=35,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        take_photo_btn=Button(btn_frame1,command=self.generate_dataset,text="Take Photo Sample",width=35,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         take_photo_btn.grid(row=0,column=0)
 
-        update_photo_btn=Button(btn_frame1,text="Update Photo Sample",width=35,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        update_photo_btn=Button(btn_frame1,text="Update Photo Sample",width=35,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         update_photo_btn.grid(row=0,column=1)
 
         
@@ -255,7 +255,7 @@ class Student:
         Right_frame=LabelFrame(main_frame,bd=2,relief=RIDGE,bg="white",text="Student Details", font=("times new roman",12,"bold"))
         Right_frame.place(x=780, y=10, width=760, height=580)
 
-        img_right=Image.open(r"C:\Users\HP\Desktop\facerecognisationsystem\college_images\GULP.png")
+        img_right=Image.open(r"college_images\manypepople.jpg")
         img_right=img_right.resize((720,130),Image.ANTIALIAS)
         self.photoimg_right=ImageTk.PhotoImage(img_right)
 
@@ -267,7 +267,7 @@ class Student:
         Search_frame=LabelFrame(Right_frame,bd=2,bg="white",relief=RIDGE,text="Search Bar System", font=("times new roman",12,"bold"))
         Search_frame.place(x=5, y=135, width=710, height=70)
 
-        search_label=Label(Search_frame,text="Search By:",font=("times new roman",15,"bold"), bg = "red",fg="white")
+        search_label=Label(Search_frame,text="Search By:",font=("times new roman",15,"bold"), bg = "black",fg="white")
         search_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
 
         search_combo=ttk.Combobox(Search_frame,font=("times new roman",13,"bold"),state="readonly",width=15)
@@ -280,10 +280,10 @@ class Student:
 
 
 
-        search_btn=Button(Search_frame,text="Search",width=12,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        search_btn=Button(Search_frame,text="Search",width=12,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         search_btn.grid(row=0,column=3,padx=4)
 
-        showAll_btn=Button(Search_frame,text="Show All",width=12,font=("times new roman", 13 , "bold"),bg="blue",fg="white")
+        showAll_btn=Button(Search_frame,text="Show All",width=12,font=("times new roman", 13 , "bold"),bg="black",fg="white")
         showAll_btn.grid(row=0,column=4,padx=4)
 
 

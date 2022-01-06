@@ -14,10 +14,10 @@ class Train:
         self.root.geometry("1530x790+0+0")
         self.root.title("face Recogniton System")
 
-        title_lbl=Label(self.root,text="Train Data Set" , font=("times new roman",35,"bold"),bg="white",fg="Blue")
-        title_lbl.place(x=0,y=0,width=1530,height=45)
+        title_lbl=Label(self.root,text="Train Data Set" , font=("times new roman",35,"bold"),bg="Black",fg="white")
+        title_lbl.place(x=0,y=0,width=1530,height=60)
 
-        img_top=Image.open(r"college_images\jsx.png")
+        img_top=Image.open(r"college_images\happypepole.jpg")
         img_top=img_top.resize((1530,325),Image.ANTIALIAS)
         self.photoimg_top=ImageTk.PhotoImage(img_top)
 
@@ -25,12 +25,12 @@ class Train:
         f_lbl.place(x=0,y=55,width=1530,height=325)
 
         #============== button==========================
-        b1_1=Button(self.root,text="TRAIN DATA",command=self.train_classifier,cursor="hand2",font=("times new roman",30,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(self.root,text="TRAIN DATA",command=self.train_classifier,cursor="hand2",font=("times new roman",30,"bold"),bg="black",fg="white")
         b1_1.place(x=0, y=380,width =1530,height=60)
 
 
 
-        img_bottom=Image.open(r"college_images\react.png")
+        img_bottom=Image.open(r"college_images\manypepople.jpg")
         img_bottom=img_bottom.resize((1530,325),Image.ANTIALIAS)
         self.photoimg_bottom=ImageTk.PhotoImage(img_bottom)
 

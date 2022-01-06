@@ -85,7 +85,7 @@ You can checkout the demo video on youtube by clicking on the thumbnail below.
 
 ✔️Photos that you trained (Photo Section Page)
 
-<img src="picture-readme/7.png" width="425"/> <img src="picture-readme/8.png" width="425"/>
+<img src="picture-readme/7.png" width="425"/><img src="picture-readme/8.png" width="425"/>
 
 ## 🔰 Installing and Running
 

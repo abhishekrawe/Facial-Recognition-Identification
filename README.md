@@ -29,7 +29,25 @@ __LBPH__(Local Binary Pattern Histogram) it is used to recognize the face of per
 * Haar Cascade   
 * LBPH(Local Binary Pattern Histogram)
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Contributing
 

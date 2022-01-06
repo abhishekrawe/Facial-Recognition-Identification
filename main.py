@@ -124,14 +124,14 @@ class Face_recognition_System:
 
 
         # exit button
-        img10=Image.open(r"college_images\search.png")
+        img10=Image.open(r"college_images\sign-out-alt.jpg")
         img10=img10.resize((220,220),Image.ANTIALIAS)
         self.photoimg10=ImageTk.PhotoImage(img10)
 
         b1=Button(bg_img,image=self.photoimg10, cursor="hand2")
         b1.place(x=1100, y=380,width =220 , height=220)
 
-        b1_1=Button(bg_img,text="exit button" , cursor="hand2" ,  font=("times new roman",15,"bold"),bg="black",fg="white")
+        b1_1=Button(bg_img,text="Exit Button" , cursor="hand2" ,  font=("times new roman",15,"bold"),bg="black",fg="white")
         b1_1.place(x=1100, y=580,width =220 , height=40)
         
     def open_img(self):

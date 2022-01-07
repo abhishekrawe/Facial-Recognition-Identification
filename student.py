@@ -421,7 +421,7 @@ class Student:
                 if Update>0:
                    conn=mysql.connector.connect(host="localhost",username="root",password="Abhi@99315",database="face_recognizer")
                    my_cursor=conn.cursor()
-                   my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Division=%s,Roll=%s,Email=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where Student_id=%s",(
+                   my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Email=%s,Gender=%s,Dob=%s,Email=%s,Phone=%s,Address=%s,Teacher=%s,PhotoSample=%s where Student_id=%s",(
                       
                                                                                                                                                                                 self.var_dep.get(),
                                                                                                                                                                                 self.var_course.get(),

@@ -68,7 +68,7 @@ class Face_Recognition:
             coord=[]
 
             for (x,y,w,h) in features:
-                cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),3)
+                cv2.rectangle(img, (x,y),(x+w,y+h),(0,255,0),3)
                 id,predict=clf.predict(gray_image[y:y+h,x:x+w])
                 confidence=int((100*(1-predict/300)))
 
@@ -84,7 +84,7 @@ class Face_Recognition:
                 r="+".join(r)
 
                 my_cursor.execute("select Dep from student where Student_id="+str(id))
-                d=my_cursor.fetchone()
+                d=my_cursor.fetchone() 
                 d="+".join(d)
 
                 my_cursor.execute("select Student_id from student where Student_id="+str(id))
@@ -98,7 +98,7 @@ class Face_Recognition:
                     cv2.putText(img,f"Department:{d}",(x,y-5),cv2.FONT_HERSHEY_COMPLEX,0.8,(255,255,255),3)
                     self.mark_attendance(i,r,n,d)
                 else:
-                    cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),3)
+                    cv2.rectangle(img, (x,y),(x+w,y+h),(0,0,255),3)
                     cv2.putText(img,"Unknown Face",(x,y-5 ),cv2.FONT_HERSHEY_COMPLEX,0.8,(255,255,255),3)
                 
                 coord=[x,y,w,y]

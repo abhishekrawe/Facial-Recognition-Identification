@@ -8,11 +8,24 @@ This Repository contain Code for Facial Recognition and Identification using Ope
 Attendance of students in a large classroom is hard to be handled by the traditional system, as it is time-consuming and has a high probability of error during the process of inputting data into the computer, Our project proposed automated attendance marking system using face recognition technique. The system deployed __Haar cascade classifier__ to find the positive and negative image of the face and __LBPH__ (Local binary pattern histogram) algorithm for face recognition by using python programming and OpenCV library. Here we use the __tkinter__ GUI interface for user interface purpose.
 
 ## 🪧 Demo video
-
-You can checkout the demo video on youtube by clicking on the thumbnail below.
-<a href="https://youtu.be/">
+        ❌ pending phase - Updated soon
+<!-- You can checkout the demo video on youtube by clicking on the thumbnail below. -->
+<!-- <a href="https://youtu.be/">
 <img src=".png" width="600px">  
-</a>
+</a> -->
+
+## 🐱‍🏍Result 
+- Some Glimpse of our Results
+✔️Recognize with _ID_, _Name_ ,_Roll_, _Department_
+![Facial recognition and identification](picture-readme/10.png)
+✔️Recognize _two faces_ in real time
+![Facial recognition and identification](picture-readme/13.png)
+✔️Recognize with picture on _Phone_
+![Facial recognition and identification](picture-readme/14.png)
+✔️it show _Unknown face_ in red color, if face is not match
+![Facial recognition and identification](picture-readme/12.png)
+![Facial recognition and identification](picture-readme/11.png)
+
 
 ### 📎  STATEMENT OF PROBLEM:
 - Attendance of students in a large classroom is hard to be handled by the traditional system, as it is time-consuming and has a high probability of error during the process of inputting data into the computer. Our project proposed automated attendance marking system using face recognition technique. RESULT: The system deployed __Haar cascade__ classifier to find the positive and negative of the face and __LBPH (Local binary pattern histogram) algorithm__ for __face recognition__ by using python programming and __OpenCV library__. Here we use the __tkinter GUI__ interface for user interface purpose. Firstly, our app asks to fill the details of the student you can click on  the __student details__ section of page and take image of the particular student. It takes __100 images__ as sample and store them in folder Training Image. After completion it notify that images __trainig completed__. After taking image sample we have to click Train Image button. Now it takes few seconds to __train machine__ for the images that are taken by clicking Take Image button and creates a __classifier.xml__ file and store in Photos section you can see your image on simple clicking on the photos section page. Now all initial setups are done. By clicking Track Image button camera of running machine is opened again. If face is recognized by system then __Id__, __Name__ , __roll number__ and __department__ of person is shown on Image with green color. if face is not match then it show __Unknown face__ in red color . Press exit button for quit this window. The attendance of the student was updated to the Excel sheet after student's face has been recognized you can simply click on the attendence section to import and export the data which you want .

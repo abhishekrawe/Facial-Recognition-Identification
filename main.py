@@ -78,10 +78,10 @@ class Face_recognition_System:
         img5=img5.resize((220,220),Image.ANTIALIAS)
         self.photoimg5=ImageTk.PhotoImage(img5)
 
-        b1=Button(bg_img,image=self.photoimg5, cursor="hand2",command=self.face_data)
+        b1=Button(bg_img,image=self.photoimg5,cursor="hand2",command=self.face_data)
         b1.place(x=630, y=100,width =220 , height=220)
 
-        b1_1=Button(bg_img,text="Face Detector" , cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="black",fg="white")
+        b1_1=Button(bg_img,text="Face Detector",cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="black",fg="white")
         b1_1.place(x=630, y=300,width =220 , height=40)
 
 
@@ -147,12 +147,9 @@ class Face_recognition_System:
         self.new_window=Toplevel(self.root)
         self.app=Student(self.new_window)
 
-
-
     def train_data(self):
         self.new_window=Toplevel(self.root)
         self.app=Train(self.new_window)
-
 
     def face_data(self):
         self.new_window=Toplevel(self.root)

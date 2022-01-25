@@ -59,12 +59,12 @@ Attendance of students in a large classroom is hard to be handled by the traditi
 
 ## 🚀 Main Features
 
-- Interactive 3D Models
-- Learn with Augmented Reality
-- Discuss with other students in the chatroom
-- Available in multiple languages
-- Chatbot Assistant
-- Fun games
+- Interactive Graphics user Interface
+- Well planned students details section
+- Well structured Attendence management section
+- user friendly section to trained the data 
+- Quick and correct result after recognisation
+- You can download the attendance in excel sheet
 
 
 ## 📃 Pages

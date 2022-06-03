@@ -55,7 +55,7 @@ Attendance of students in a large classroom is hard to be handled by the traditi
 
 - LBPH Algorithms: [Refrence](https://towardsdatascience.com/face-recognition-how-lbph-works-90ec258c3d6b)
 
-- Haar Cascade Algorithms: [Refrence](https://towardsdatascience.com/face-detection-with-haar-cascade-727f68dafd08)
+- Haar Cascade classifier Algorithms: [Refrence](https://towardsdatascience.com/face-detection-with-haar-cascade-727f68dafd08)
 
 ## 🚀 Main Features
 
